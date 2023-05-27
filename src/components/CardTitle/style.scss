@@ -1,0 +1,11 @@
+.content-title{
+  position: relative;
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    h1, h2{
+      padding: 0;
+    }
+  }
+}
