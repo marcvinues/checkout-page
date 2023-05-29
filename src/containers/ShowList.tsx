@@ -31,10 +31,11 @@ export const ShowList = () => {
     { value: "10", label: "10" },
   ];
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("[show]", show.value);
     console.log("[ticketa]", tickets.value);
-    navigate("/payment");
+    navigate("/payment", { state: { show: show, tickets: tickets } });
   };
   return (
     <div>
