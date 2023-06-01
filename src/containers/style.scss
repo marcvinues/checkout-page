@@ -1,0 +1,16 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh;
+  > div {
+    width: 300px;
+    padding: .3em;
+    margin: 1em;
+  }
+  > button {
+    width: 300px;
+  }
+}

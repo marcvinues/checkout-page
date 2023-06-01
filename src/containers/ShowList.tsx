@@ -2,20 +2,22 @@ import { useState } from "react";
 import { Dropdown } from "../components/Dropdown";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/Button";
+import Logo from "../components/Logo/Logo";
+import "./style.scss";
 export const ShowList = () => {
   const [show, setShow] = useState("");
   const [tickets, setTickets] = useState("");
   const navigate = useNavigate();
 
   const options = [
-    { value: "green", label: "Green" },
-    { value: "blue", label: "Blue" },
-    { value: "red", label: "Red" },
-    { value: "yellow", label: "Yellow" },
-    { value: "orange", label: "Orange" },
-    { value: "pink", label: "Pink" },
-    { value: "purple", label: "Purple" },
-    { value: "grey", label: "Grey" },
+    { value: "Metallica", label: "Metallica" },
+    { value: "Megadeth", label: "Megadeth" },
+    { value: "Trivium", label: "Trivium" },
+    { value: "Slayer", label: "Slayer" },
+    { value: "Crim", label: "Crim" },
+    { value: "WASP", label: "WASP" },
+    { value: "Rancid", label: "Rancid" },
+    { value: "NOFX", label: "NOFX" },
   ];
 
   const NumberOptions = [
@@ -33,13 +35,14 @@ export const ShowList = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("[show]", show.value);
-    console.log("[ticketa]", tickets.value);
     navigate("/payment", { state: { show: show, tickets: tickets } });
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <div>
+        <Logo />
+      </div>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <Dropdown
           placeholder="Search show..."
           options={options}
@@ -50,7 +53,9 @@ export const ShowList = () => {
           options={NumberOptions}
           onChange={(value: string) => setTickets(value)}
         />
-        <Button type="submit" BtnText="Accept" />
+        <div>
+          <Button type="submit" BtnText="Accept" disabled={false} />
+        </div>
       </form>
     </div>
   );

@@ -7,4 +7,7 @@ button {
   color: white;
   border: none;
   border-radius: 5px;
+  &:disabled {
+    opacity: 0.5;
+  }
 }

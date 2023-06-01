@@ -1,0 +1,47 @@
+.visa-component {
+  background-color: #F2F7FC;
+  border: 1px solid lightblue;
+  height: 400px;
+  width: 400px;
+  .visa-card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1em;
+    > p, svg {
+      margin-left: 1em;
+      font-weight: bold;
+    }
+  }
+  .visa-content {
+    display: block;
+    margin-left: 3em;
+    > p {
+      color: #85878A;
+      margin: 0;
+      a {
+        color: blue;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
+    > input[type="password"]  {
+      height: 20px;
+      font-size: 16px;
+      padding: 1em;
+    }
+  }
+}
+.add-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  > svg, p {
+    margin-right: 1em;
+    a {
+      font-size: 16px;
+      color: blue;
+      font-weight: bold;
+    }
+  }
+}

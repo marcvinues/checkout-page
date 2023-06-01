@@ -1,0 +1,20 @@
+.add-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  > svg, p {
+    margin-right: 1em;
+    a {
+      font-size: 16px;
+      color: blue;
+      font-weight: bold;
+    }
+  }
+}
+.btn-edit-delete {
+  border: none;
+  background-color: transparent;
+  color: blue;
+  width: 35px;
+  cursor: pointer;
+}

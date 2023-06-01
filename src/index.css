@@ -9,8 +9,26 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
+#root{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
 h1 {
   font-weight: bold;
 }
+section {
+  flex: 1;
+  padding-right: 15px;
+}
 
+aside {
+  flex: 0.4;
+  height: auto;
+  padding-left: 15px;
+}
+input {
+  height: 20px;
+  font-size: 16px;
+  padding: 1em;
+}

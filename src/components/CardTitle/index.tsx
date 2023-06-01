@@ -32,7 +32,7 @@ export const CardTitle = ({
       <p>{contentExtraResult}</p>
     </div>
     <div>
-      <p>{text}</p>
+      <span>{text}</span>
     </div>
   </div>
 );

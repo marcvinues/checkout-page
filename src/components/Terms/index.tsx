@@ -22,15 +22,11 @@ export const Terms = () => {
         />
         <p>{checkBoxText}</p>
       </div>
-      {checked ? (
-        <Button
-          BtnText="Place Order"
-          onclick={(e) => handleClick(e)}
-          disabled={false}
-        />
-      ) : (
-        ""
-      )}
+      <Button
+        BtnText="Place Order"
+        onclick={(e) => handleClick(e)}
+        disabled={!checked}
+      />
     </div>
   );
 };

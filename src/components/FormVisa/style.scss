@@ -1,0 +1,18 @@
+.form-visa {
+  background-color: #F2F7FC;
+  border: 1px solid lightblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  text-align: left;
+  width: 95%;
+  height: auto;
+  min-height: auto;
+  padding: 1em;
+  margin: 1em 0 1em 0;
+  > button {
+    margin-top: 1em;
+    width: 200px;
+  }
+}
