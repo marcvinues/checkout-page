@@ -1,11 +1,16 @@
-import { useState } from "react";
 import { FaCcVisa } from "react-icons/fa";
 import "./style.scss";
+import { useNavigate } from "react-router-dom";
+import { getDataFromStorage, deleteVisa } from "../../../utils/customFunctions";
 
-export const VisaCard = ({ addVisa }) => {
-  const { name, number, expirationYear, expirationMonth, security } = addVisa;
-  const [edit, setEdit] = useState(false);
-
+export const VisaCard = ({ addVisa, setVisa }) => {
+  const { id, name, number, expirationYear, expirationMonth, security } =
+    addVisa;
+  const navigate = useNavigate();
+  const removeVisa = () => {
+    deleteVisa(id);
+    setVisa(getDataFromStorage());
+  };
   return (
     <>
       <div className="visa-component">
@@ -19,10 +24,16 @@ export const VisaCard = ({ addVisa }) => {
             {name} | {expirationYear}/{expirationMonth}
           </p>
           <p>
-            <button className="btn-edit-delete" onClick={() => setEdit(!edit)}>
+            <button
+              className="btn-edit-delete"
+              onClick={() => navigate(`/payment/${id}`)}
+            >
               edit
             </button>{" "}
-            - <a href="">delete</a>
+            -{" "}
+            <button className="btn-edit-delete" onClick={() => removeVisa()}>
+              delete
+            </button>
           </p>
           <p>Security Code</p>
           <input

@@ -1,7 +1,12 @@
 import { useEffect } from "react";
-import { addVisaData } from "../../utils/customFunctions";
+import {
+  addVisaData,
+  getVisaFromId,
+  editVisa,
+} from "../../utils/customFunctions";
 import { useForm } from "../../hooks/useForm";
 import "./style.scss";
+import { useParams } from "react-router-dom";
 
 export const FormVisa = () => {
   const { inputValues, resetForm, handleInputChange, setForm } = useForm({
@@ -11,10 +16,18 @@ export const FormVisa = () => {
     expirationYear: "",
     security: "",
   });
+  const { id } = useParams();
+
+  useEffect(() => {
+    if (id) {
+      const visa = getVisaFromId(id);
+      setForm(visa);
+    }
+  }, [id]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addVisaData(inputValues);
+    id ? editVisa(id, inputValues) : addVisaData(inputValues);
     resetForm();
   };
   return (

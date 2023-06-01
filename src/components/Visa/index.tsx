@@ -7,7 +7,6 @@ import "./style.scss";
 
 export const VisaComponent = () => {
   const [addVisa, setAddVisa] = useState({});
-  const [edit, setEdit] = useState(false);
   const [add, setAdd] = useState([{ form: "" }]);
 
   useEffect(() => {
@@ -15,18 +14,16 @@ export const VisaComponent = () => {
   }, []);
 
   const handleAddCard = () => {
-    // const a = [...addVisa, { name: "" }];
-    console.log("entra");
-
     setAdd([...add, { form: "" }]);
   };
 
-  console.log("getLocalData] =>", addVisa);
   return (
     <>
       {add.length > 1 && <FormVisa />}
       {addVisa.length > 0 ? (
-        addVisa.map((visa) => <VisaCard addVisa={visa} key={visa.id} />)
+        addVisa.map((visa) => (
+          <VisaCard setVisa={setAddVisa} addVisa={visa} key={visa.id} />
+        ))
       ) : (
         <FormVisa />
       )}
