@@ -1,14 +1,17 @@
-form {
+.form-select {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   min-height: 80vh;
-  > div {
+  > form {
     width: 300px;
-    padding: .3em;
+    padding: 1em;
     margin: 1em;
+    > div {
+      margin-bottom: 1em;
+    }
   }
   > button {
     width: 300px;

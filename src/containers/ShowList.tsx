@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dropdown } from "../components/Dropdown";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/Button";
-import Logo from "../components/Logo/Logo";
 import "./style.scss";
 export const ShowList = () => {
   const [show, setShow] = useState("");
   const [tickets, setTickets] = useState("");
+  const [disabled, setDisabled] = useState(true);
   const navigate = useNavigate();
+
+  /*  Instead of hardcode this options whe can do like this:
+      use fetch or axios ( I prefer axios to control the errors)
+      const [options, setOptions] = useState()
+      axios.get('/url') // that could be a json file or url from api
+      .then(data => data.data)
+      .catch(error => setError(error))
+      whit this approach for each dropdown, also envolve with useEffect
+      to get the data well performed
+  */
 
   const options = [
     { value: "Metallica", label: "Metallica" },
@@ -32,16 +42,19 @@ export const ShowList = () => {
     { value: "9", label: "9" },
     { value: "10", label: "10" },
   ];
+  useEffect(() => {
+    if (show && tickets) {
+      setDisabled(false);
+    }
+  }, [show, tickets]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate("/payment", { state: { show: show, tickets: tickets } });
   };
   return (
-    <div>
-      <div>
-        <Logo />
-      </div>
+    <div className="form-select">
+      <h1>Ticketmaster</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <Dropdown
           placeholder="Search show..."
@@ -54,7 +67,7 @@ export const ShowList = () => {
           onChange={(value: string) => setTickets(value)}
         />
         <div>
-          <Button type="submit" BtnText="Accept" disabled={false} />
+          <Button type="submit" BtnText="Accept" disabled={disabled} />
         </div>
       </form>
     </div>

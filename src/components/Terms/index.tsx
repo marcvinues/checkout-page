@@ -16,11 +16,13 @@ export const Terms = () => {
       <p>{termsText}</p>
       <div style={{ display: "flex" }}>
         <input
+          id="terms"
+          name="terms"
           type="checkbox"
           defaultChecked={checked}
           onChange={() => setChecked(!checked)}
         />
-        <p>{checkBoxText}</p>
+        <label htmlFor="terms">{checkBoxText}</label>
       </div>
       <Button
         BtnText="Place Order"
