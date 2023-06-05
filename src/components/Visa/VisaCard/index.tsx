@@ -3,7 +3,12 @@ import "./style.scss";
 import { useNavigate } from "react-router-dom";
 import { getDataFromStorage, deleteVisa } from "../../../utils/customFunctions";
 
-export const VisaCard = ({ addVisa, setVisa }) => {
+interface VisaProps {
+  addVisa: string | number | undefined | any;
+  setVisa: string | number | undefined | any;
+}
+
+export const VisaCard = ({ addVisa, setVisa }: VisaProps) => {
   const { id, name, number, expirationYear, expirationMonth, security } =
     addVisa;
   const navigate = useNavigate();
